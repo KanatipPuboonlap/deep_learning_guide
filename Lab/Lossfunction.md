@@ -14,7 +14,10 @@
 ## 2. ประเภทของ Loss Function และการใช้งาน
 
 ### a. **Mean Squared Error (MSE)**  
-- **สูตร**: $ \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 $
+- **สูตร**:
+  ```
+  MSE = (1/n) Σ (y_i - ŷ_i)²
+  ```
 - **ข้อดี**:
   - คำนวณง่ายและเหมาะสำหรับงานที่ต้องการลดความผิดพลาดแบบเชิงเส้น
   - ใช้งานได้ดีเมื่อข้อมูลมีการกระจายตัวปกติ (Normal Distribution)
@@ -24,7 +27,10 @@
   - เหมาะสำหรับงาน Regression เช่น การทำนายราคาบ้าน, การทำนายยอดขาย
 
 ### b. **Mean Absolute Error (MAE)**  
-- **สูตร**: $ \text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i| $
+- **สูตร**:
+  ```
+  MAE = (1/n) Σ |y_i - ŷ_i|
+  ```
 - **ข้อดี**:
   - ทนทานต่อ Outliers มากกว่า MSE
 - **ข้อเสีย**:
@@ -33,7 +39,10 @@
   - เหมาะสำหรับงาน Regression ที่มี Outliers ในข้อมูล
 
 ### c. **Binary Cross-Entropy (BCE)**  
-- **สูตร**: $ \text{BCE} = -\frac{1}{n} \sum_{i=1}^{n} [y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i)] $
+- **สูตร**:
+  ```
+  BCE = -(1/n) Σ [y_i log(ŷ_i) + (1 - y_i) log(1 - ŷ_i)]
+  ```
 - **ข้อดี**:
   - เหมาะสำหรับงาน Binary Classification
   - ช่วยให้โมเดลเรียนรู้ความแตกต่างระหว่างคลาสได้ดี
@@ -43,7 +52,10 @@
   - เหมาะสำหรับงาน Binary Classification เช่น การตรวจจับ Spam Email, การจำแนกเพศ
 
 ### d. **Categorical Cross-Entropy (CCE)**  
-- **สูตร**: $ \text{CCE} = -\sum_{i=1}^{n} y_i \log(\hat{y}_i) $
+- **สูตร**:
+  ```
+  CCE = - Σ y_i log(ŷ_i)
+  ```
 - **ข้อดี**:
   - เหมาะสำหรับงาน Multi-class Classification
   - ช่วยให้โมเดลเรียนรู้ความแตกต่างระหว่างหลายคลาสได้ดี
@@ -59,10 +71,11 @@
 
 ### f. **Huber Loss**  
 - **สูตร**:
-  - กรณีที่ $ |y - \hat{y}| \leq \delta $:  
-    $L_\delta(y, \hat{y}) = \frac{1}{2}(y - \hat{y})^2$
-  - กรณีที่ $ |y - \hat{y}| > \delta $:  
-    $L_\delta(y, \hat{y}) = \delta |y - \hat{y}| - \frac{1}{2}\delta^2$
+  ```
+  Huber Loss =
+      (1/2) (y - ŷ)²        if |y - ŷ| ≤ δ
+      δ |y - ŷ| - (1/2) δ²   otherwise
+  ```
 - **ข้อดี**:
   - ผสมผสานระหว่าง MSE และ MAE โดยทนทานต่อ Outliers แต่ยังคงความแม่นยำในกรณีที่ค่าผิดพลาดเล็กน้อย
 - **การใช้งาน**:
