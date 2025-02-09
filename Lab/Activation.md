@@ -1,3 +1,5 @@
+Your Markdown code has been adjusted to ensure proper formatting. Here's the corrected version:
+markdownCopy
 # การเลือก Activation Function ใน Deep Learning
 
 การเลือก **Activation Function** ใน Deep Learning เป็นขั้นตอนสำคัญที่ส่งผลต่อประสิทธิภาพและความสามารถของโมเดลในการเรียนรู้และทำนายข้อมูล การเลือกฟังก์ชันกระตุ้นที่เหมาะสมจะขึ้นอยู่กับลักษณะของปัญหา โครงสร้างของเครือข่ายประสาท และพฤติกรรมของข้อมูลที่ใช้ ด้านล่างนี้คือคำอธิบายโดยละเอียดเกี่ยวกับวิธีการเลือก Activation Function:
@@ -20,48 +22,48 @@
 - **ข้อเสีย**:
   - อาจเกิดปัญหา Dying ReLU (เซลล์ประสาทบางเซลล์ถูกปิดการทำงานตลอดเวลา)
 - **การใช้งาน**:
-  - เหมาะสำหรับ Hidden Layers ในเครือข่ายทั่วไป เช่น Feedforward Neural Networks และ Convolutional Neural Networks (CNN)
+    * เหมาะสำหรับ Hidden Layers ในเครือข่ายทั่วไป เช่น Feedforward Neural Networks และ Convolutional Neural Networks (CNN)
 
 ### b. **Leaky ReLU / Parametric ReLU**  
 - **สูตร**: $ f(x) = \max(\alpha x, x) $ (Leaky ReLU), $ f(x) = \max(\alpha x, x) $ โดยที่ $\alpha$ เป็นพารามิเตอร์ที่ปรับได้ (Parametric ReLU)
 - **ข้อดี**:
-  - แก้ปัญหา Dying ReLU โดยให้ค่า Gradient ไม่เป็นศูนย์เมื่อ $ x < 0 $
+    * แก้ปัญหา Dying ReLU โดยให้ค่า Gradient ไม่เป็นศูนย์เมื่อ $ x < 0 $
 - **การใช้งาน**:
-  - ใช้ในกรณีที่พบว่า ReLU ทำงานไม่ดีพอ
+    * ใช้ในกรณีที่พบว่า ReLU ทำงานไม่ดีพอ
 
 ### c. **Sigmoid**  
 - **สูตร**: $ f(x) = \frac{1}{1 + e^{-x}} $
 - **ข้อดี**:
-  - ค่าผลลัพธ์อยู่ระหว่าง 0 ถึง 1 เหมาะสำหรับปัญหา Binary Classification
+    * ค่าผลลัพธ์อยู่ระหว่าง 0 ถึง 1 เหมาะสำหรับปัญหา Binary Classification
 - **ข้อเสีย**:
-  - มีปัญหา Vanishing Gradient เมื่อ $ x $ มีค่ามากหรือน้อยเกินไป
+    * มีปัญหา Vanishing Gradient เมื่อ $ x $ มีค่ามากหรือน้อยเกินไป
 - **การใช้งาน**:
-  - เหมาะสำหรับ Output Layer ในปัญหา Binary Classification
+    * เหมาะสำหรับ Output Layer ในปัญหา Binary Classification
 
 ### d. **Tanh (Hyperbolic Tangent)**  
 - **สูตร**: $ f(x) = \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} $
 - **ข้อดี**:
-  - ค่าผลลัพธ์อยู่ระหว่าง -1 ถึง 1 ช่วยให้ข้อมูลมีการกระจายตัวที่ดีกว่า Sigmoid
+    * ค่าผลลัพธ์อยู่ระหว่าง -1 ถึง 1 ช่วยให้ข้อมูลมีการกระจายตัวที่ดีกว่า Sigmoid
 - **ข้อเสีย**:
-  - ยังคงมีปัญหา Vanishing Gradient เช่นเดียวกับ Sigmoid
+    * ยังคงมีปัญหา Vanishing Gradient เช่นเดียวกับ Sigmoid
 - **การใช้งาน**:
-  - เหมาะสำหรับ Hidden Layers ในบางกรณี เช่น RNN
+    * เหมาะสำหรับ Hidden Layers ในบางกรณี เช่น RNN
 
 ### e. **Softmax**  
 - **สูตร**: $ f(x_i) = \frac{e^{x_i}}{\sum_{j} e^{x_j}} $
 - **ข้อดี**:
-  - แปลงค่าออกเป็นความน่าจะเป็น (Probability Distribution) ที่รวมกันได้เท่ากับ 1
+    * แปลงค่าออกเป็นความน่าจะเป็น (Probability Distribution) ที่รวมกันได้เท่ากับ 1
 - **การใช้งาน**:
-  - เหมาะสำหรับ Output Layer ในปัญหา Multi-class Classification
+    * เหมาะสำหรับ Output Layer ในปัญหา Multi-class Classification
 
 ### f. **Linear**  
 - **สูตร**: $ f(x) = x $
 - **ข้อดี**:
-  - ใช้งานง่ายและเหมาะสำหรับงานที่ต้องการการประมาณค่าแบบเชิงเส้น
+    * ใช้งานง่ายและเหมาะสำหรับงานที่ต้องการการประมาณค่าแบบเชิงเส้น
 - **ข้อเสีย**:
-  - ไม่สามารถจัดการกับความซับซ้อนของข้อมูลได้
+    * ไม่สามารถจัดการกับความซับซ้อนของข้อมูลได้
 - **การใช้งาน**:
-  - เหมาะสำหรับ Output Layer ในปัญหา Regression
+    * เหมาะสำหรับ Output Layer ในปัญหา Regression
 
 ---
 
@@ -69,19 +71,19 @@
 
 ### a. เลือกตามชนิดของปัญหา
 - **Classification**:
-  - Binary Classification → Sigmoid (Output Layer)
-  - Multi-class Classification → Softmax (Output Layer)
+    * Binary Classification → Sigmoid (Output Layer)
+    * Multi-class Classification → Softmax (Output Layer)
 - **Regression**:
-  - Linear (Output Layer)
+    * Linear (Output Layer)
 
 ### b. เลือกตามโครงสร้างของเครือข่าย
 - **Hidden Layers**:
-  - ReLU เป็นตัวเลือกแรกเสมอ เนื่องจากประสิทธิภาพสูงและช่วยลดปัญหา Vanishing Gradient
-  - หากพบปัญหา Dying ReLU ให้ลองใช้ Leaky ReLU หรือ Parametric ReLU
+    * ReLU เป็นตัวเลือกแรกเสมอ เนื่องจากประสิทธิภาพสูงและช่วยลดปัญหา Vanishing Gradient
+    * หากพบปัญหา Dying ReLU ให้ลองใช้ Leaky ReLU หรือ Parametric ReLU
 - **Recurrent Neural Networks (RNN)**:
-  - Tanh หรือ ReLU มักถูกใช้ใน Hidden Layers
+    * Tanh หรือ ReLU มักถูกใช้ใน Hidden Layers
 - **Convolutional Neural Networks (CNN)**:
-  - ReLU เป็นตัวเลือกยอดนิยมใน Hidden Layers
+    * ReLU เป็นตัวเลือกยอดนิยมใน Hidden Layers
 
 ### c. ทดลองและปรับแต่ง
 - การเลือก Activation Function อาจต้องอาศัยการทดลองหลายครั้ง เช่น การเปรียบเทียบประสิทธิภาพของ ReLU, Leaky ReLU, และ Tanh ใน Hidden Layers
@@ -105,7 +107,8 @@
 โดยทั่วไป:
 - **Hidden Layers**: ReLU (หรือ Leaky ReLU หากพบปัญหา)
 - **Output Layer**:
-  - Classification → Sigmoid (Binary), Softmax (Multi-class)
-  - Regression → Linear
+    * Classification → Sigmoid (Binary), Softmax (Multi-class)
+    * Regression → Linear
 
 การทดลองและปรับแต่งเป็นสิ่งสำคัญเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด!
+All done!
