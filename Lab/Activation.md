@@ -1,5 +1,3 @@
-To display mathematical equations correctly in Markdown with block formatting, you can use double dollar signs ($$) for block equations. Here's the adjusted version of your content:
-markdownCopy
 # การเลือก Activation Function ใน Deep Learning
 
 การเลือก **Activation Function** ใน Deep Learning เป็นขั้นตอนสำคัญที่ส่งผลต่อประสิทธิภาพและความสามารถของโมเดลในการเรียนรู้และทำนายข้อมูล การเลือกฟังก์ชันกระตุ้นที่เหมาะสมจะขึ้นอยู่กับลักษณะของปัญหา โครงสร้างของเครือข่ายประสาท และพฤติกรรมของข้อมูลที่ใช้ ด้านล่างนี้คือคำอธิบายโดยละเอียดเกี่ยวกับวิธีการเลือก Activation Function:
@@ -7,26 +5,15 @@ markdownCopy
 ---
 
 ## 1. เข้าใจบทบาทของ Activation Function
-- Activation Function มีหน้าที่นำเอาผลลัพธ์จาก Linear Transformation (เช่น 
-$$
-Wx + b
-$$
-) มาแปลงให้อยู่ในรูปแบบที่ไม่เป็นเชิงเส้น เพื่อเพิ่มความสามารถในการเรียนรู้ของโมเดล
-- หากไม่มี Activation Function หรือใช้ฟังก์ชันเชิงเส้น เช่น 
-$$
-f(x) = x
-$$
-เครือข่ายประสาทจะกลายเป็นเพียงการรวมกันของฟังก์ชันเชิงเส้น ซึ่งลดทอนศักยภาพในการแก้ปัญหาที่ซับซ้อน
+- Activation Function มีหน้าที่นำเอาผลลัพธ์จาก Linear Transformation (เช่น $Wx + b$) มาแปลงให้อยู่ในรูปแบบที่ไม่เป็นเชิงเส้น เพื่อเพิ่มความสามารถในการเรียนรู้ของโมเดล
+- หากไม่มี Activation Function หรือใช้ฟังก์ชันเชิงเส้น เช่น $f(x) = x$ เครือข่ายประสาทจะกลายเป็นเพียงการรวมกันของฟังก์ชันเชิงเส้น ซึ่งลดทอนศักยภาพในการแก้ปัญหาที่ซับซ้อน
 
 ---
 
 ## 2. ประเภทของ Activation Function และการใช้งาน
 
 ### a. **ReLU (Rectified Linear Unit)**  
-- **สูตร**:  
-$$
-f(x) = \max(0, x)
-$$
+- **สูตร**: $f(x) = \max(0, x)$  
 - **ข้อดี**:  
   - คำนวณได้ง่ายและรวดเร็ว  
   - ช่วยแก้ปัญหา Vanishing Gradient ได้ดีในเลเยอร์ที่ลึก  
@@ -36,32 +23,23 @@ $$
     * เหมาะสำหรับ Hidden Layers ในเครือข่ายทั่วไป เช่น Feedforward Neural Networks และ Convolutional Neural Networks (CNN)  
 
 ### b. **Leaky ReLU / Parametric ReLU**  
-- **สูตร**:  
-$$
-f(x) = \max(\alpha x, x) \quad \text{(Leaky ReLU)}, \quad f(x) = \max(\alpha x, x) \quad \text{โดยที่ } \alpha \text{ เป็นพารามิเตอร์ที่ปรับได้ (Parametric ReLU)}
-$$
+- **สูตร**: $f(x) = \max(\alpha x, x)$ (Leaky ReLU), $f(x) = \max(\alpha x, x)$ โดยที่ $\alpha$ เป็นพารามิเตอร์ที่ปรับได้ (Parametric ReLU)  
 - **ข้อดี**:  
-    * แก้ปัญหา Dying ReLU โดยให้ค่า Gradient ไม่เป็นศูนย์เมื่อ $ x < 0 $  
+    * แก้ปัญหา Dying ReLU โดยให้ค่า Gradient ไม่เป็นศูนย์เมื่อ $x < 0$  
 - **การใช้งาน**:  
     * ใช้ในกรณีที่พบว่า ReLU ทำงานไม่ดีพอ  
 
 ### c. **Sigmoid**  
-- **สูตร**:  
-$$
-f(x) = \frac{1}{1 + e^{-x}}
-$$
+- **สูตร**: $f(x) = \frac{1}{1 + e^{-x}}$  
 - **ข้อดี**:  
     * ค่าผลลัพธ์อยู่ระหว่าง 0 ถึง 1 เหมาะสำหรับปัญหา Binary Classification  
 - **ข้อเสีย**:  
-    * มีปัญหา Vanishing Gradient เมื่อ $ x $ มีค่ามากหรือน้อยเกินไป  
+    * มีปัญหา Vanishing Gradient เมื่อ $x$ มีค่ามากหรือน้อยเกินไป  
 - **การใช้งาน**:  
     * เหมาะสำหรับ Output Layer ในปัญหา Binary Classification  
 
 ### d. **Tanh (Hyperbolic Tangent)**  
-- **สูตร**:  
-$$
-f(x) = \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}
-$$
+- **สูตร**: $f(x) = \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$  
 - **ข้อดี**:  
     * ค่าผลลัพธ์อยู่ระหว่าง -1 ถึง 1 ช่วยให้ข้อมูลมีการกระจายตัวที่ดีกว่า Sigmoid  
 - **ข้อเสีย**:  
@@ -70,20 +48,14 @@ $$
     * เหมาะสำหรับ Hidden Layers ในบางกรณี เช่น RNN  
 
 ### e. **Softmax**  
-- **สูตร**:  
-$$
-f(x_i) = \frac{e^{x_i}}{\sum_{j} e^{x_j}}
-$$
+- **สูตร**: $f(x_i) = \frac{e^{x_i}}{\sum_{j} e^{x_j}}$  
 - **ข้อดี**:  
     * แปลงค่าออกเป็นความน่าจะเป็น (Probability Distribution) ที่รวมกันได้เท่ากับ 1  
 - **การใช้งาน**:  
     * เหมาะสำหรับ Output Layer ในปัญหา Multi-class Classification  
 
 ### f. **Linear**  
-- **สูตร**:  
-$$
-f(x) = x
-$$
+- **สูตร**: $f(x) = x$  
 - **ข้อดี**:  
     * ใช้งานง่ายและเหมาะสำหรับงานที่ต้องการการประมาณค่าแบบเชิงเส้น  
 - **ข้อเสีย**:  
@@ -136,5 +108,4 @@ $$
     * Classification → Sigmoid (Binary), Softmax (Multi-class)  
     * Regression → Linear  
 
-การทดลองและปรับแต่งเป็นสิ่งสำคัญเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด!  
-All done!
+การทดลองและปรับแต่งเป็นสิ่งสำคัญเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด!
