@@ -58,14 +58,11 @@
   - เหมาะสำหรับงาน Multi-class Classification เมื่อ Label เป็น Integer
 
 ### f. **Huber Loss**  
-- **สูตร**: 
-  $$
-  L_\delta(y, \hat{y}) =
-  \begin{cases} 
-  \frac{1}{2}(y - \hat{y})^2 & \text{if } |y - \hat{y}| \leq \delta \\
-  \delta |y - \hat{y}| - \frac{1}{2}\delta^2 & \text{otherwise}
-  \end{cases}
-  $$
+- **สูตร**:
+  - กรณีที่ $ |y - \hat{y}| \leq \delta $:  
+    $L_\delta(y, \hat{y}) = \frac{1}{2}(y - \hat{y})^2$
+  - กรณีที่ $ |y - \hat{y}| > \delta $:  
+    $L_\delta(y, \hat{y}) = \delta |y - \hat{y}| - \frac{1}{2}\delta^2$
 - **ข้อดี**:
   - ผสมผสานระหว่าง MSE และ MAE โดยทนทานต่อ Outliers แต่ยังคงความแม่นยำในกรณีที่ค่าผิดพลาดเล็กน้อย
 - **การใช้งาน**:
@@ -87,4 +84,3 @@
 
 ### b. เลือกตามลักษณะของข้อมูล
 - หากข้อมูลมี Outliers มาก → ใช้ MAE หรือ Huber Loss
--
